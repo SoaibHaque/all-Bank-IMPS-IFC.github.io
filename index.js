@@ -13,11 +13,6 @@ const Selector = ele => document.querySelector(ele),
 
 // changes occur after select bank
 
-let whatsAppSend = () => {
-    let url = `http://api.whatsapp.com/send?phone=919818855510&text=${encodeURI(Selector('#ifc').value)}`;
-    window.open(url, '_blank');
-}
-
 let copyIFC = () => {
     Selector('#ifc').select();
     document.execCommand("copy");
@@ -38,5 +33,3 @@ Selector('#search').onchange = () => afterSelect(Selector('#search').value);
 Selector('#search').onfocus = () => Selector('#search').select();
 
 Selector('#ifc').onfocus = () => copyIFC();
-
-Selector('#send').onclick = () => Selector('#ifc').value !== '' ? whatsAppSend() : undefined;
